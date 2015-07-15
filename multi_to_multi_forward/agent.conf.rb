@@ -1,5 +1,7 @@
 host="127.0.0.1"
 ports=(20000..20107)
+num_threads=((ports.max - ports.min) * 0.6).to_i
+num_threads=1 if num_threads==0
 puts <<EOC
 <source>
   type tail
@@ -15,7 +17,7 @@ puts <<EOC
     flush_interval 0
     buffer_chunk_limit 1m
     buffer_queue_limit 64
-    num_threads 128
+    num_threads #{num_threads}
 EOC
 ports.each do |port|
 puts <<EOC
