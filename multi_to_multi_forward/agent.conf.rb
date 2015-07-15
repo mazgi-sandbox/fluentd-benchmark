@@ -1,4 +1,4 @@
-host="127.0.0.1"
+host=ENV['RCV_HOST']
 ports=(20000..20107)
 num_threads=((ports.max - ports.min) * 0.6).to_i
 num_threads=1 if num_threads==0
