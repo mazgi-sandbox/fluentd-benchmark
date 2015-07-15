@@ -14,6 +14,7 @@ puts <<EOC
   type copy
   <store>
     type forward
+    heartbeat_interval 60s
     flush_interval 0
     buffer_chunk_limit 1m
     buffer_queue_limit 64
